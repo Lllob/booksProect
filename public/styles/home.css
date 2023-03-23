@@ -1,0 +1,61 @@
+.home {
+    width: 100%;
+    height: 73vh;
+    background-color:#502d87;
+    /* background-image: url(../images/background.png); */
+    background-position: center;
+    background-size: cover;
+    margin-top: 0%;
+    padding: 0;
+    color: ivory;
+}
+
+
+
+.home h6 {
+    margin-left: 150px;
+    font-size: 30px;
+    margin-top: 1px;
+    margin-bottom: 5px;
+    display: inline-block;
+     
+}
+
+
+.home p {
+    line-height: 22px;
+    font-size: 20px;
+    display: inline-block;
+    margin: 0px 250px;
+}
+
+.home img {
+    width: 840px;
+    height: 300px;
+    position: center;
+    left: 100px;
+    right: 100px;
+    
+}
+
+
+
+
+
+@keyframes cssAnimation {
+    to {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+    }
+}
+
+@-webkit-keyframes cssAnimation {
+    to {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        padding: 0;
+    }
+}
