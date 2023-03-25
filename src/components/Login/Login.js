@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/AuthContext";//vzimame AuthContext(z
 import * as authService from "../../services/authService";//fetch, GET, POST
 
 const Login = () => {
-  const { userLogin } = useContext(AuthContext);//vzimame userLogin()
+  const { userLogin } = useContext(AuthContext);//vzimame userLogin() ot autconteksta, dolu mu davame dannite
   const navigate = useNavigate();
 
   const onSubmit = (e) => {//vzimame dannite ot htmla

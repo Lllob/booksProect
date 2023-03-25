@@ -17,8 +17,8 @@ const postReducer = (state, action) => {//chrez reducera pravim promenite//danni
         case 'CREATE'://create
             return [...state, action.data];//starite postove(...state, + noviqt post)
 
-         case 'DETAILS':
-           return state.map(p => p._id === action.postId ? action.data : p);//starite postove, ako ima promqna vav konkretniqt post go zameni s novite danni, ako ne dobavi si stariqt
+         //case 'DETAILS':
+          // return state.map(p => p._id === action.postId ? action.data : p);//starite postove, ako ima promqna vav konkretniqt post go zameni s novite danni, ako ne dobavi si stariqt
             
         case 'EDIT'://edit
             return state.map(p => p._id === action.postId ? action.data : p);//starite postove, ako ima promqna vav konkretnite postove gi dobavi, ako ne dobavi si starite
