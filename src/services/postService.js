@@ -2,7 +2,7 @@ import * as request from "./requester"; //fetch, GET, POST, DELELE
 
 const baseUrl = 'http://localhost:3030/data';
 
-export const getCatalog = () => request.get(`${baseUrl}/books?sortBy=_createdOn%20desc`);//vzimame dannite ot
+export const getCatalog = () => request.get(`${baseUrl}/books?sortBy=_createdOn%20desc`);//vzimame dannite ot sarvara
 
 export const getDetails = (postId) => request.get(`${baseUrl}/books/${postId}`);
 

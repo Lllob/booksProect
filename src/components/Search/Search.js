@@ -9,19 +9,17 @@ const Search = () => {
   const { posts } = useContext(PostContext);
 
     
-  
   const onSubmit = (e) => { 
     e.preventDefault();
    
-
     let searchField = Object.fromEntries(new FormData(e.target))//vzimame htmla
 
      const searchList = posts.filter(p =>
       p.title.toLowerCase().includes(searchField.search.toLowerCase())) // /([a-zA-Z]+)/  \S praznite prostranstva, \d ili [0-9]
-       setSearch(searchList)       
-       
 
-      }   
+       setSearch(searchList) //vkarvame v steita searchLista sas savpadeniqta  
+       
+  }   
 
 
  

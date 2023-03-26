@@ -23,18 +23,17 @@ const Edit = () => {
         const editData = Object.fromEntries(new FormData(e.target));//vzimame inputa
         //console.log(editData)
 
-        
         if (editData.title === '' || editData.description === '' || editData.imageUrl === '' || editData.type === '') {
           return alert('Pleas, fill all fields!')
          }
 
         postService.editPost(postId.id, editData)
             .then(result => { //vkarva me v sarvara promqnata
-                postEdit(postId.id, result);
+                postEdit(postId.id, result); //davame go na postEdit() vav PostContext.js
                 navigate(`/details/${postId.id}`)
             });
     };
-//<select id="type" name="type" defaultValue={'DEFAULT'}> //vav HTMLA pravish tezi promeni za da se sachetaqt value sas dafaultValue(kito se promenqt)
+//<select id="type" name="type" defaultValue={'DEFAULT'}> //vav HTMLA pravish tezi promeni za da se sachetaqt value sas dafaultValue(koito se promenqt)
 //<option  value="DEFAULT" disabled>Fiction</option>
 
 return(

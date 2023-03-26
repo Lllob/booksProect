@@ -5,30 +5,36 @@ import {  useParams, Link, useNavigate } from 'react-router-dom'; //za ID, link,
 import { useAuthContext } from '../../contexts/AuthContext';//vzimame dannite za usera
 
 import * as postService from '../../services/postService';
-
  
 const Details = () => {
-  //const [detail, setDetail] = useState()
+    //const [detail, setDetail] = useState()
+
     let  [count, setCount] = useState(0)  //za like 
-     let  [like, setLiks] = useState(false);
+    let  [like, setLiks] = useState(false);
     let  [buy, setBuy] = useState(false)//buys
     
     const postId = useParams();//kato obect {id:223533}
-    const { postRemove, tekushtPost } = useContext(PostContext); // postDetails, 
+    const { postRemove, tekushtPost, postDetails } = useContext(PostContext); // postDetails, 
     const { user } = useAuthContext();
     const navigate = useNavigate();
-  
-    //details
-    useEffect(() => {
-    postService.getDetails(postId.id)
-    .then(result => {
-     //setDetails(result)
-    })
-   },[postId.id]) 
-     //console.log(detail)
+    
+   
+   useEffect(() => {
+      postService.getDetails(postId.id)
+        .then(result => {
+          // setDetail(result)
+           if (result) {
+            postDetails(result, result._id)
+           }
+        })
+        //eslint-disable-next-line 
+  }, [postId.id])
+    
+
+
       const currentPost = tekushtPost(postId.id);//vzimame tekushtata knig ot kataloga
       const isOwner = currentPost._ownerId === user._id; //sobstvenika na posta
-  
+     
        
     /////Delita
     const postDeleteHandler = () => {//pri natiskane na butona dellite se izpalnqva funkciqta
@@ -41,7 +47,7 @@ const Details = () => {
                   navigate('/catalog');
               })
       }
-     }
+    }
 
       
     
@@ -85,7 +91,7 @@ const Details = () => {
             </Link>
             <button className="button" onClick={postDeleteHandler}>
               Delete
-              </button>*
+              </button>
             </div>
             }
            

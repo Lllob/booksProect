@@ -1,8 +1,7 @@
 
-
 #search {
     width: 100%;
-    height: 68vh;
+    height: 73vh;
 }
 
  h2 {
@@ -28,7 +27,7 @@
 .search-wrapper {
     margin-left: 22%;
     padding-right: 20px;
-    padding-right: 20px;
+    /* border-bottom: 20px; */
     /* display:inline-block; */
     width:350px;
     height: 40px;
@@ -69,7 +68,8 @@
    font-size: 35px;
 }
 
-#search-container {
+.card-wrapper {
+    height: 100%;
     background-color:#7e7ec4;
      /* background-image: url(../images/background.png);  */
     background-position: center;
@@ -81,6 +81,7 @@
         flex-direction: column;
         align-items: center;
 }
+
 
 
 

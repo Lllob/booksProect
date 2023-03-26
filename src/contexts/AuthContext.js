@@ -10,7 +10,7 @@ export const AuthProvider = ({//vikame go v App.js, za da sa dostapni dannite na
      //auth(dannite za usera) - izpolzva me go dolu vav htmla
 
     const userLogin = (authData) => {//informaciqta idva ot Login.js//dolu v htmla userLogin() q pravim dostapna na vsqkad
-        setAuth(authData);//vkarvame vav setAuth() dannite za usera, i prvi prmenite i gi vkarva vav auth(steita) //useLocalStorage('auth', _id:..., 'name:Pesho,....)
+        setAuth(authData);//vkarvame vav setAuth() dannite za usera, i pravi promenite i gi vkarva vav auth(steita) //useLocalStorage('auth', _id:..., 'name:Pesho,....)
     };
 
     const userLogout = () => {

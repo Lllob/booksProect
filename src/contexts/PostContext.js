@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";//sas createContext izpolzvame userReducer(vmesto useContext) dvoina dinamichna precizno hvaashtane na proverka
+import { createContext, useReducer, useEffect } from "react";//sas createContext izpolzvame userReducer(vmesto useContext) dvoina dinamichna precizno hvaashtane na promenite
 import { useNavigate } from 'react-router-dom';
 
 import * as postService from '../services/postService';//fetcha za POST, GET
@@ -16,10 +16,10 @@ const postReducer = (state, action) => {//chrez reducera pravim promenite//danni
 
         case 'CREATE'://create
             return [...state, action.data];//starite postove(...state, + noviqt post)
-
-         //case 'DETAILS':
-          // return state.map(p => p._id === action.postId ? action.data : p);//starite postove, ako ima promqna vav konkretniqt post go zameni s novite danni, ako ne dobavi si stariqt
             
+         case 'DETAILS': //v steita e vsichko
+            return state.map(p => p._id === action.postId ? action.data : p);//starite postove, ako ima promqna vav konkretniqt post go zameni s novite danni, ako ne dobavi si stariqt
+
         case 'EDIT'://edit
             return state.map(p => p._id === action.postId ? action.data : p);//starite postove, ako ima promqna vav konkretnite postove gi dobavi, ako ne dobavi si starite
 
@@ -60,15 +60,18 @@ export const PostProvider = ({   //posle vliza vav App.js h
     };
      
 
-    //details (samo ako ima promeni, inache e ne se izpolzva)
-    // const postDetails = (data, postId) => {
-    //     const action = { 
-    //         type: 'DETAILS', 
-    //         data,
-    //         postId,   
-    //     };
-    //     dispatch(action)
-    // };
+   // details //(samo ako ima promeni, inache  ne se izpolzva)
+    const postDetails = (data, postId) => {
+        if (data) {
+        const action = { 
+            type: 'DETAILS', 
+            data,
+            postId,   
+        };
+        //console.log(action)
+        dispatch(action)
+    }
+    };
    
    //create
     const postCreate = (postData) => {//create //dannite idvat ot Create.js
@@ -102,11 +105,6 @@ export const PostProvider = ({   //posle vliza vav App.js h
     }
 
 
-
-
-
-    
-   
     
     return (//vav App.js <postProvider> izliza dolnoto </postProvider>
         <PostContext.Provider value={{ //vkarvame vav contexta(GameContext) value={moje da se vika ot celiqt children}
@@ -114,7 +112,7 @@ export const PostProvider = ({   //posle vliza vav App.js h
             postCreate,
             postEdit,
             postRemove,
-            //postDetails,
+            postDetails,
             tekushtPost,
         }}>
             {children}
