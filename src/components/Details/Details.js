@@ -5,7 +5,8 @@ import {  useParams, Link, useNavigate } from 'react-router-dom'; //za ID, link,
 import { useAuthContext } from '../../contexts/AuthContext';//vzimame dannite za usera
 
 import * as postService from '../../services/postService';
- 
+import { motion } from "framer-motion"  //npm install framer-motion //za animaciqta
+
 const Details = () => {
     //const [detail, setDetail] = useState()
 
@@ -111,9 +112,16 @@ const Details = () => {
                 {!isOwner &&
                 <div>
                  {!like 
-                  ? <button onClick={increaseHandler}>Like</button> 
-                  : <button onClick={decreaseHandler}>Dislike</button>
-                 }
+                  ? <motion.button onClick={increaseHandler}
+                  whileHover={{ scale: 1.1, background: "green"}}
+                  whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
+                 >Like
+                 </motion.button>
+                   : <motion.button onClick={decreaseHandler}
+                   whileHover={{ scale: 1.1, background: "red"}}
+                   >Dislike
+                   </motion.button>
+                 } 
               </div>
             }
               
@@ -133,3 +141,5 @@ const Details = () => {
 }
 
 export default Details;
+
+// style={{ background: "red"}}

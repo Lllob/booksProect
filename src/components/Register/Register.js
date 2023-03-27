@@ -2,10 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import * as authService from "../../services/authService";
 
 import { AuthContext } from "../../contexts/AuthContext";//vzimame AuthContext(informaciqta za login, logaut)
-import { useContext } from "react";//kontexta('globalnite' danni)
+import { useContext, useState } from "react";//kontexta('globalnite' danni)
 
 
 const Register = () => {
+  const [errorEm, setErrorEm] = useState(false)//greshkite na emaila
+  const [errorPss, setErrorPass] = useState(false) //greshkite na parolata
+  const [messige, setMessige] = useState('')
+  const [messigePass, setMessigePass] = useState('')
   const { userLogin } = useContext(AuthContext);//vzimame userLogin() ot Auttexta
 
   const navigate = useNavigate();
@@ -18,17 +22,27 @@ const Register = () => {
       const email = formData.get('email');
       const password = formData.get('password');
       const confirmPassword = formData.get('confirm-pass');
-        if (email === '' || password === '') {
-            return alert('Pleas, fill all fields!')
-        }
+        
+        if (email.length < 1) {
+        setErrorEm(true)
+         setMessige('Email mast be at least one character long')
+       // return alert('Email or Password mast be at least two character long')
+      } else {
+        setErrorEm(false)
+      }
 
-      if (email.length < 2 || password.length < 2) {
-        return alert('Email or Password mast be at least two character long')
+      if (password.length < 1) {
+        setErrorPass(true)
+        setMessigePass('Password mast be at least one character long')
+        //return alert('Email or Password mast be at least two character long')
+      } else {
+        setErrorPass(false)
       }
       
       if (password !== confirmPassword) {
         return alert('Password don/t match')
       }
+  
    
       authService.register(email, password)//vkarvame dannite vav sarvara
           .then(authData => {
@@ -45,18 +59,23 @@ const Register = () => {
           <p className="field">
             <label htmlFor="email">Email</label>
             <span className="input">
-              <input type="text" name="email" id="email" placeholder="Email" />
+            {errorEm ? <input type="text" name="email" id="email" placeholder={messige} /> 
+             : <input type="text" name="email" id="email" placeholder="Email" />
+            }
             </span>
           </p>
           <p className="field">
             <label htmlFor="password">Password</label>
             <span className="input">
-              <input
+            {errorPss ? <input
                 type="password"
                 name="password"
                 id="password"
-                placeholder="Password"
+                placeholder={messigePass}
               />
+               : <input type="password" name="password" id="password"
+               placeholder="Password" 
+               />}
             </span>
           </p>
           <p className="field">

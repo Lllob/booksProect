@@ -2,6 +2,7 @@ import { useContext,  useState } from "react";
 import { PostContext } from "../../contexts/PostContext";
 
 import SearchItem from "./SearchItem/SearchItem";
+import { motion } from "framer-motion"  //npm install framer-motion //za animaciqta
 
 
 const Search = () => {
@@ -34,7 +35,11 @@ const Search = () => {
       placeholder="Search here..."
       required=""
     />
-    <button type="submit">Search</button>
+     <motion.button type="submit"
+      whileHover={{ scale: 1.1, background: "red"}}
+      whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
+      >Search
+    </motion.button>
   </form>
   <h5>Results:</h5>
   <div id="search-container">
@@ -50,3 +55,5 @@ const Search = () => {
 }
 
 export default Search;
+
+// style={{ background: "red"}}

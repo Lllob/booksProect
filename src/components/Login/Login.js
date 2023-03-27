@@ -22,10 +22,6 @@ const Login = () => {
 
       authService.login(email, password)//vkarvame dannite vav sarvara
           .then(authData => {
-            if (authData.status >= 400) {
-                return alert('Email or password don/t match')
-            }
-    
               userLogin(authData);//davame danni na userLogin(vav AuthContext.js)
                navigate('/catalog');
           })
