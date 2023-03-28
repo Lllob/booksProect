@@ -12,17 +12,18 @@
     /* padding-left: 1px; */
 } 
 
- /* #search form {
-    display: inline;
+ #search form {
+    /* display: inline;
     width: 50px;
-    height: 40px;
+    height: 40px; */
     background: #444;
+    background: #ed0a0a;
     background: rgba(0, 0, 0, .2);
-    border-radius: 3px;
+    /* border-radius: 3px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.20);
     margin-left: 5%;
-    margin-top: 100%;
-} */
+    margin-top: 100%; */
+}
 
 .search-wrapper {
     margin-left: 22%;

@@ -1,4 +1,4 @@
-import {  useContext, useEffect, useState } from 'react';//useEffect,
+import {  useContext, useEffect, useState } from 'react';
 import { PostContext } from '../../contexts/PostContext';
 
 import {  useParams, Link, useNavigate } from 'react-router-dom'; //za ID, link, navigate(/catalog)
@@ -10,9 +10,9 @@ import { motion } from "framer-motion"  //npm install framer-motion //za animaci
 const Details = () => {
     //const [detail, setDetail] = useState()
 
-    let  [count, setCount] = useState(0)  //za like 
-    let  [like, setLiks] = useState(false);
-    let  [buy, setBuy] = useState(false)//buys
+    let [count, setCount] = useState(0)  //za like 
+    let [like, setLiks] = useState(false);
+    let [buy, setBuy] = useState(false)//buys
     
     const postId = useParams();//kato obect {id:223533}
     const { postRemove, tekushtPost, postDetails } = useContext(PostContext); // postDetails, 
@@ -113,12 +113,12 @@ const Details = () => {
                 <div>
                  {!like 
                   ? <motion.button onClick={increaseHandler}
-                  whileHover={{ scale: 1.1, background: "green"}}
-                  whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
+                  whileHover={{ scale: 1.1, backgroundColor: "#51b05c"}}
+                  // whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
                  >Like
                  </motion.button>
                    : <motion.button onClick={decreaseHandler}
-                   whileHover={{ scale: 1.1, background: "red"}}
+                   whileHover={{ scale: 1.1, backgroundColor: "#ed0a0a"}}
                    >Dislike
                    </motion.button>
                  } 

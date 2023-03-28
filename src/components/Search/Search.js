@@ -36,7 +36,7 @@ const Search = () => {
       required=""
     />
      <motion.button type="submit"
-      whileHover={{ scale: 1.1, background: "red"}}
+      whileHover={{ scale: 1.1, backgroundColor: "#51b05c"}}
       whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
       >Search
     </motion.button>

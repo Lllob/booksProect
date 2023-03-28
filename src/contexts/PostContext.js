@@ -107,7 +107,7 @@ export const PostProvider = ({   //posle vliza vav App.js h
 
     
     return (//vav App.js <postProvider> izliza dolnoto </postProvider>
-        <PostContext.Provider value={{ //vkarvame vav contexta(GameContext) value={moje da se vika ot celiqt children}
+        <PostContext.Provider value={{ //vkarvame vav contexta(PostContext) value={moje da se vika ot celiqt children}
             posts, 
             postCreate,
             postEdit,
