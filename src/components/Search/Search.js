@@ -20,6 +20,7 @@ const Search = () => {
 
        setSearch(searchList) //vkarvame v steita searchLista sas savpadeniqta  
        
+       e.target.reset() //izchistvame inputa
   }   
 
 

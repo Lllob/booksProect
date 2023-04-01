@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";//sas createContext izpolzvame userReducer(vmesto useContext) dvoina dinamichna precizno hvaashtane na promenite
+import { createContext, useReducer, useEffect } from "react";//createContext(contexta), userReducer(podobno na useState)dinamichna precizno hvaashtane na promenite
 import { useNavigate } from 'react-router-dom';
 
 import * as postService from '../services/postService';//fetcha za POST, GET
@@ -42,6 +42,7 @@ export const PostProvider = ({   //posle vliza vav App.js h
 
      //cataloga
     useEffect(() => { //pravi se sas steita(inache hvarlq greshka)
+        
         postService.getCatalog()//cataloga //vzimame dannite ot sarvara
             .then(result => { //pri ok:
                  const action = {   

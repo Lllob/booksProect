@@ -7,15 +7,15 @@ export const AuthProvider = ({//vikame go v App.js, za da sa dostapni dannite na
     children,  //zeliqt html mejdu <AuthProvider>htmla</AuthProvider> vav App.js
 }) => {
     const [auth, setAuth] = useLocalStorage('auth', {});//obiknoven steit(podobno na useState) //vkarvat se dannite vav useLocalStorage (ot useLocalStorige.js)
-     //auth(dannite za usera) - izpolzva me go dolu vav htmla
+     //auth(dannite za usera)
 
-    const userLogin = (authData) => {//informaciqta idva ot Login.js//dolu v htmla userLogin() q pravim dostapna na vsqkad
-        setAuth(authData);//vkarvame vav setAuth() dannite za usera, i pravi promenite i gi vkarva vav auth(steita) //useLocalStorage('auth', _id:..., 'name:Pesho,....)
+    const userLogin = (userData) => {//informaciqta idva ot Login.js//dolu v htmla userLogin() q pravim dostapna na vsqkad
+        setAuth(userData);//vkarvame vav setAuth() dannite za usera, i pravi promenite i gi vkarva vav auth(steita) //useLocalStorage('auth', _id:..., 'name:Pesho,....)
     };
 
     const userLogout = () => {
         setAuth({});//izprazva me setAuth(), toest ot stranicata
-            //localStorage.clear()
+            localStorage.clear()
           
         
     };

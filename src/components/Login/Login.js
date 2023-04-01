@@ -21,8 +21,8 @@ const Login = () => {
     }
 
       authService.login(email, password)//vkarvame dannite vav sarvara
-          .then(authData => {
-              userLogin(authData);//davame danni na userLogin(vav AuthContext.js)
+          .then(userData => {
+              userLogin(userData);//davame danni na userLogin(vav AuthContext.js)
                navigate('/catalog');
           })
   };

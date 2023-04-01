@@ -10,14 +10,14 @@ const Register = () => {
   const [errorPss, setErrorPass] = useState(false) //greshkite na parolata
   const [messige, setMessige] = useState('')
   const [messigePass, setMessigePass] = useState('')
-  const { userLogin } = useContext(AuthContext);//vzimame userLogin() ot Auttexta
+  const { userLogin } = useContext(AuthContext);//vzimame userLogin() ot Autcontexta
 
   const navigate = useNavigate();
 
   const onSubmit = (e) => {
       e.preventDefault();
 
-      const formData = new FormData(e.target);
+      const formData = new FormData(e.target); //vzimame dannite ot htmla
 
       const email = formData.get('email');
       const password = formData.get('password');
@@ -45,8 +45,8 @@ const Register = () => {
   
    
       authService.register(email, password)//vkarvame dannite vav sarvara
-          .then(authData => {
-              userLogin(authData);//davame dannite na userLogin()
+          .then(userData => {
+              userLogin(userData);//davame dannite na userLogin()
               navigate('/catalog');
           });
   }

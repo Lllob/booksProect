@@ -5,6 +5,7 @@ import {  useParams, Link, useNavigate } from 'react-router-dom'; //za ID, link,
 import { useAuthContext } from '../../contexts/AuthContext';//vzimame dannite za usera
 
 import * as postService from '../../services/postService';
+import styles from '../../Stylee.module.css'
 import { motion } from "framer-motion"  //npm install framer-motion //za animaciqta
 
 const Details = () => {
@@ -54,19 +55,19 @@ const Details = () => {
     
      //liks
      const increaseHandler = () => { 
-        setCount(oldCount => oldCount + 1)
-        setLiks((oldLike) => oldLike = true);
+        setCount(count => count + 1)
+        setLiks(true);
      }
      
     //disliks
     const decreaseHandler = () => {
-        setCount(oldCount => oldCount - 1)
-        setLiks((oldLike) => oldLike = false);
+        setCount(count => count - 1)
+        setLiks(false);
     };
 
 /////////buy
     const buyHandler = () => {
-       setBuy((oldBuy) => oldBuy = true)
+       setBuy(true)
        return alert('You have buy it')
     }
 
@@ -106,8 +107,10 @@ const Details = () => {
 
 
             <div className="likes">
-              <img className="hearts" src="/images/heart.png" alt="images" />
-              
+            {like 
+              ? <img className={styles['heartss']} src="/images/R.gif" alt="images" />
+              : <img className="hearts" src="/images/heart.png" alt="images" />
+              }
               <span id="total-likes" >Liks {count}</span>
                 {!isOwner &&
                 <div>

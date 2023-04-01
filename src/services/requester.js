@@ -16,7 +16,7 @@ const request = async (method, url, data) => { //logikata// vkarvame dannite ot 
             fetchData = fetch(url, { headers });
         } else {
             fetchData = fetch(url, {
-                method,//POST// PUT//DELL
+                method,   //POST// PUT//DELL
                 headers: {
                     ...headers,
                     'content-type': 'application/json'

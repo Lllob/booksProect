@@ -46,19 +46,19 @@ function App() {
       )} />
 
        <Route path="/edit/:id" element={(
-            <PrivateRoute> {/*pri lognat potrebitel */}
+            <PrivateRoute> 
               <Edit />
           </PrivateRoute>
       )} />
 
      <Route path="/mylist" element={(
-            <PrivateRoute> {/*pri lognat potrebitel */}
+            <PrivateRoute> 
               <MyList />
           </PrivateRoute>
       )} />
 
 <Route path="/search" element={(
-            <PrivateRoute> {/*pri lognat potrebitel */}
+            <PrivateRoute>
                 <Search />
           </PrivateRoute>
       )} />

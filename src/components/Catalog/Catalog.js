@@ -13,7 +13,7 @@ const Catalog = () => {
         <ul className="other-books-list">
             {posts.length > 0
                 ? posts.map(post => <CatalogItem key={post._id} post={post} />)
-                : <p className="no-books">No posts in database!</p>
+                : <p className="no-books">No books in database!</p>
             }
         </ul>
         </section>

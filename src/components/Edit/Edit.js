@@ -1,4 +1,4 @@
- import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 
 import * as postService from '../../services/postService';
@@ -27,8 +27,8 @@ const Edit = () => {
           return alert('Pleas, fill all fields!')
          }
 
-        postService.editPost(postId.id, editData)
-            .then(result => { //vkarva me v sarvara promqnata
+        postService.editPost(postId.id, editData) //vkarva me v sarvara promqnata
+            .then(result => { //pri ok
                 postEdit(postId.id, result); //davame go na postEdit() vav PostContext.js
                 navigate(`/details/${postId.id}`)
             });
